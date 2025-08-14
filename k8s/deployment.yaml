@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iwaskidding
+  labels:
+    app: iwaskidding
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iwaskidding
+  template:
+    metadata:
+      labels:
+        app: iwaskidding
+    spec:
+      containers:
+        - name: iwaskidding
+          image: ghcr.io/sayjeyhi/iwaskidding.com:latest
+          ports:
+            - containerPort: 8080
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          resources:
+            limits:
+              cpu: '500m'
+              memory: '512Mi'
+            requests:
+              cpu: '250m'
+              memory: '256Mi'
