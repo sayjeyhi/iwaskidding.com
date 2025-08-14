@@ -11,11 +11,11 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - iwaskidding.dev
-        - www.iwaskidding.dev
+        - 'iwaskidding.com'
+        - '*.iwaskidding.com'
       secretName: iwaskidding-tls-v2
   rules:
-    - host: iwaskidding.dev
+    - host: 'iwaskidding.com'
       http:
         paths:
           - path: /
@@ -25,7 +25,7 @@ spec:
                 name: iwaskidding-service
                 port:
                   number: 8080
-    - host: www.iwaskidding.dev
+    - host: '*.iwaskidding.com'
       http:
         paths:
           - path: /
