@@ -43,15 +43,6 @@ jobs:
 
       - name: Build
         run: bun run build
-      - name: Test if dist directory exists
-        run: |
-          if [ ! -d "dist" ]; then
-            echo "Error: dist directory does not exist. Build failed."
-            exit 1
-          fi
-      - name: Verify dist directory
-        run: |
-          ls -la ./dist
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
