@@ -19,7 +19,6 @@ spec:
           image: ghcr.io/sayjeyhi/iwaskidding.com:latest
           ports:
             - containerPort: 8080
-
           livenessProbe:
             httpGet:
               path: /
@@ -29,9 +28,8 @@ spec:
               path: /
               port: 8080
           resources:
-            limits:
-              cpu: '300m'
-              memory: '300Mi'
             requests:
-              cpu: '100m'
-              memory: '100Mi'
+              cpu: "20m"
+              memory: "32Mi"
+            limits:
+              memory: "128Mi"
